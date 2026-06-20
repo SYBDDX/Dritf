@@ -1,8 +1,17 @@
-plugins {
-    id 'eclipse'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
+    }
 }
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
 
 version = "${mod_version}"
 group = "${maven_group}"
